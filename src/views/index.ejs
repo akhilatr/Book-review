@@ -7,13 +7,14 @@
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link href="/css/bootstrap.min.css" rel="stylesheet">
+    
 		<link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 		<link href="/css/styles.css" rel="stylesheet">
 	</head>
 
-	<body style="background-image: url('images/home-bg.png');">
+	<body style="background-image: url('images/book1.jpg');" style="filter: blur(50px); ">
     <header class="navbar navbar-bright navbar-fixed-top" role="banner">
-      <div class="container">
+      <div class="containers">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -21,12 +22,18 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
+          <a class="navbar-brand" href="#" style="color: rgb(64, 12, 207);" style="font-size: large ;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReVd4iAWxEgi7bKrAFycXRn8KsWHYvtijAog&usqp=CAU" alt="" width="50" height="50" class="d-inline-block align-text-top">
+            Book of Bliss
+          </a>
           <a href="/" class="navbar-brand">Home</a>
         </div>
         <nav class="collapse navbar-collapse" role="navigation">
+          
           <ul class="nav navbar-nav">
             <%for(i=0;i<nav.length;i++){%>
             <li>
+             
               <a href="<%=nav[i].link%>"><%=nav[i].name%></a>
             </li>
             <%}%>
@@ -34,19 +41,9 @@
         </nav>
       </div>
     </header>
+    
 
-    <div id="masthead" style="opacity: 0.8;">  
-      <div class="container">
-        <div class="row">
-          <div class="col-md-7">
-            <h1><%=title%>
-              <p class="lead"></p>
-            </h1>
-          </div>
-        </div> 
-      </div>   
-    </div>
-
+    
     <footer class='navbar-fixed-bottom' style="height:5%">
       <div class="container">
         <div class="row">

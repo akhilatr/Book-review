@@ -11,9 +11,9 @@
 	<link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 	<link href="/css/styles.css" rel="stylesheet">
 </head>
-<body style="background-image: url('/images/home-bg.png');" onload="formFill();">
+<body style="background-image: url('/images/download.png');" onload="formFill();">
     <header class="navbar navbar-bright navbar-fixed-top" role="banner">
-        <div class="container">
+        <div class="containers">
           <div class="navbar-header">
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
               <span class="sr-only">Toggle navigation</span>
@@ -21,6 +21,10 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
+            <a class="navbar-brand" href="#" style="color: rgb(64, 12, 207);" style="font-size: large ;">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReVd4iAWxEgi7bKrAFycXRn8KsWHYvtijAog&usqp=CAU" alt="" width="50" height="50" class="d-inline-block align-text-top">
+              Book of Bliss
+            </a>
             <a href="/" class="navbar-brand">Home</a>
           </div>
           <nav class="collapse navbar-collapse" role="navigation">
@@ -72,12 +76,16 @@
                         <div class="row" style="margin:auto;">    
                             <br>
                             <div class="col-md-5" style="border-style:double; margin:10px;">
-                                <br><p style="font-weight: bold;">
+                                <br><p style="font-weight: bold; color: aqua;" >
                                     Add Books 
                                 <br></p>
                                 <!-- BOOK -->
                                 <form class="form" id="addBookForm" method="POST" action=<%= act1%>>
-                                    <div class="mb-3">
+                                  <div class="mb-3">
+                                   IBN number <br>
+                                    <input type="number" class="form-control" id="bookNumber" name="IBNnumber" required>
+                                </div>  
+                                  <div class="mb-3">
                                         Title <br>
                                         <input type="text" class="form-control" id="bookTitle" name="title" required>
                                     </div>
@@ -86,13 +94,26 @@
                                         <input type="text" class="form-control" id="bookAuth" name="author" required>
                                     </div>
                                     <div class="mb-3">
+                                      
+                                        Language <br>
+                                        <input type="text" class="form-control" id="bookLanguage" name="language" required>
+                                    </div>
+                                    <div class="mb-3">
                                         Genre(s) <br>
                                         <input type="text" class="form-control" id="bookGenre" name="genre" required>
                                     </div>
                                     <div class="mb-3">
+                                      Year of Publication <br>
+                                      <input type="number" class="form-control" id="bookyear" name="year" required>
+                                  </div>
+                                    <div class="mb-3">
                                         Image Link <br>
                                         <input type="text" class="form-control" id="bookImage" name="image" required>
                                     </div>
+                                    <div class="mb-3">
+                                      Link to Purchase <br>
+                                      <input type="text" class="form-control" id="bookLink" name="link" required>
+                                  </div>
                                     <div class="mb-3">
                                         About <br>
                                         <input type="text" class="form-control" name="bio" id="bookBio" required>
@@ -110,7 +131,7 @@
                             
                             <!-- ADD AUTH -->
                             <div class="col-md-5" style="border-style:double; margin:10px;">
-                                <br><p style="font-weight: bold;">
+                                <br><p style="font-weight: bold; color: aqua;">
                                     Add Author 
                                 <br></p>
                                 <!-- LOG IN -->
@@ -173,6 +194,11 @@
         document.getElementById('bookAuth').value= "<%= book.author%>";
         document.getElementById('bookGenre').value="<%= book.genre%>";
         document.getElementById('bookImage').value="<%= book.image%>";
+        document.getElementById('bookBio').value= "<%=book.bio%>";
+        document.getElementById('bookLanguage').value= "<%=book.language%>";
+        document.getElementById('bookyear').value= "<%= book.year%>";
+        document.getElementById('bookLink').value="<%= book.link%>";
+        document.getElementById('bookNumber').value="<%= book.IBNnumber%>";
         document.getElementById('bookBio').value= "<%=book.bio%>";
         document.getElementById('authName').value='<%= auth.name%>';
         document.getElementById('authBio').value='<%= auth.bio%>';

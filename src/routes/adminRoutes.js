@@ -7,7 +7,7 @@ function router(nav, redirectLogin){
     adminRouter.get('/', redirectLogin,function(req, res){
 
         if(!req.session.userId){
-            var nav=[{link:'/books', name:'Books'},{link:'/authors', name:'Authors'},{link:'/login', name:'Login'},{link:'/signup', name:'Sign Up'}];
+            var nav=[{link:'/login', name:'Login'},{link:'/signup', name:'Sign Up'}];
         }else{
             var nav=[{link:'/books', name:'Books'},{link:'/authors', name:'Authors'},{link:'/edit', name:'Post'},{link:'/logout', name:'Logout'}];
         }
@@ -30,6 +30,10 @@ function router(nav, redirectLogin){
             genre: req.body.genre,
             image: req.body.image,
             bio: req.body.bio,
+            link:req.body.link,
+            year:req.body.year,
+            language:req.body.language,
+            IBNnumber:req.body.IBNnumber,
         };
 
         var book = bookData(item);
@@ -106,6 +110,10 @@ function router(nav, redirectLogin){
             genre: req.body.genre,
             image: req.body.image,
             bio: req.body.bio,
+            link: req.body.link,
+            year: req.body.year,
+            language: req.body.language,
+            IBNnumber: req.body.IBNnumber
         };
         
         bookData.findOneAndUpdate(filter, {$set:item})
@@ -134,22 +142,7 @@ function router(nav, redirectLogin){
         res.redirect('/authors');
     });
 
-    adminRouter.post('/deletebook/:id',redirectLogin, function(req,res){
-        const id = req.params.id;
-        bookData.deleteOne({_id: id})
-        .then(function(x){
-            res.redirect('/books');
-        });
-        
-    });
-
-    adminRouter.post('/deleteauth/:id',redirectLogin, function(req,res){
-        const id = req.params.id;
-        authData.deleteOne({_id: id})
-        .then(function(x){
-            res.redirect('/authors');
-        });
-    });
+    
 
     return adminRouter;
 };

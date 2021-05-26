@@ -4,7 +4,7 @@ var session = require('express-session')
 
 const sessTime= 2*60*60*1000;
 const {
-    PORT=8080,
+    PORT=8085,
     NODE_ENV = 'development',
     SESS_NAME='sid',
     SESS_SECRET= 'ssh!quiet,it\'asecret!',
@@ -14,6 +14,7 @@ const {
 const IN_PROD = NODE_ENV ==='production';
 
 var nav = [
+    
     {
         link:'/books', name:'Books'
     },
@@ -60,6 +61,7 @@ const loginRouter = require('./src/routes/loginRoutes')(nav,redirectHome);
 const signupRouter = require('./src/routes/signupRoutes')(nav,redirectHome);
 const adminRouter = require('./src/routes/adminRoutes')(nav,redirectLogin);
 
+app.enable('trust proxy');
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('./public'));
 app.use(session({
@@ -86,7 +88,7 @@ app.set('views', './src/views');
 app.get('/', function(req, res){
     
         if(!req.session.userId){
-            var nav=[{link:'/books', name:'Books'},{link:'/authors', name:'Authors'},{link:'/login', name:'Login'},{link:'/signup', name:'Sign Up'}];
+            var nav=[{link:'/login', name:'Login'},{link:'/signup', name:'Sign Up'}];
         }else{
             var nav=[{link:'/books', name:'Books'},{link:'/authors', name:'Authors'},{link:'/edit', name:'Post'},{link:'/logout', name:'Logout'}];
         }

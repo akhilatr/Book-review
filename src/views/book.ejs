@@ -10,9 +10,9 @@
 		<link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 		<link href="/css/styles.css" rel="stylesheet">
 	</head>
-	<body style="background-image: url('/images/home-bg.png');">
+  <body style="background-image: url('/public/images/download.png');" style="filter: blur(50px); ">
 <header class="navbar navbar-bright navbar-fixed-top" role="banner">
-  <div class="container">
+  <div class="containers">
     <div class="navbar-header">
       <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
@@ -20,6 +20,10 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+      <a class="navbar-brand" href="#" style="color: rgb(64, 12, 207);" style="font-size: large ;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReVd4iAWxEgi7bKrAFycXRn8KsWHYvtijAog&usqp=CAU" alt="" width="50" height="50" class="d-inline-block align-text-top">
+        Book of Bliss
+      </a>
       <a href="/" class="navbar-brand">Home</a>
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
@@ -80,14 +84,22 @@
           <div class="row">    
             <br>
             <div class="col-md-2 col-sm-3 text-center">
-                <a class="story-title" href="#"><img alt="" src="<%=book.image%>" style="width:100px;height:100px" class="img-circle"></a>
-            </div>
+                <a class="story-title" href="#"><img alt="" src="<%=book.image%>" style="width:100px;height:100px" class="img-cirlce"></a>
+                <h3><%=book.year%></h3>
+                <h3><%=book.language%></h3>
+                <a  href="<%=book.link%>" style="color: blue;" class="text-muted">Click to Buy</a>
+                         
+              </div>
             <div class="col-md-10 col-sm-9">
+            
               <h3><%=book.title%></h3>
+              <h3><%=book.IBNnumber%></h3>
+              <h4><%=book.genre%></h4>
               <div class="row">
                 <div class="col-xs-9">
-                  <h4><span class="label label-default"><%=book.author%></span></h4><h4>
-                  <small style="font-family:courier,'new courier';" class="text-muted"><%=book.bio%><br>
+                  <h4><span class="label label-default"><%=book.author%></span></h4>
+                    <h4><span class="label label-default"><%=book.language%></span></h4><h4>
+                     <h5><%=book.bio%></h5>
                   </h4></div>
                 <div class="col-xs-3">
                   <form action="/edit/editbook/<%=book._id%>" method="GET">
@@ -98,12 +110,8 @@
                     </button> 
                   </form>
                   <br>
-                  <form onclick="return confirmDialog('<%=book.title%>')" action="/edit/deletebook/<%=book._id%>" method="POST">
-                    <button type="submit" class="btn btn-danger">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-                      </svg>
-                  </button>
+                  
+                  
                   </form>
                 </div>
               </div>

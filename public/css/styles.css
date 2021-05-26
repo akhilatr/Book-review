@@ -5,11 +5,12 @@
   width:auto;
 }
 
-body {
+ body {
+  
   padding-top:50px;
   color:#646464;
   background-color:#efefef;
-}
+} 
 
 h1,h2,h3,.highlight,.navbar a,#masthead h4 {
   font-family:'Oswald',arial narrow,sans-serif;
@@ -20,19 +21,19 @@ footer {
   margin-top:40px;
   padding-top:40px;
   padding-bottom:40px;
-  background-color:#cecece;
+  background-color:#0a0a0a;
  
 }
 
 
 #masthead {
-  min-height:199px;
+  min-height:10px;
   background-color:#000000;
   color:#aaaacc;
 }
 
 #masthead h1 {
-  font-size: 55px;
+  font-size: 0px;
   line-height: 1;
   color:#fefeff;
   margin-top:50px;
@@ -43,7 +44,7 @@ footer {
   background-color:#000000;
   border-color:#000000;
   color:#efefff;
-  min-height:127px;
+  min-height:50px;
 }
 
 #topPanel {
@@ -82,8 +83,8 @@ a,a:hover {
 }
 
 .navbar-bright {
-  background-color:#000000;
-  color:#fff;
+  background-color:#a16581;
+  color:rgb(17, 2, 2);
   margin-bottom: 0;
   border-width: 0;
 }
@@ -93,8 +94,17 @@ a,a:hover {
   font-size:14px;
   text-transform: uppercase;
   letter-spacing:.08em;
+  
+  
 }
-
+.containers{
+  background-color: #a16581;
+  padding-top: 0%;
+  height: 70px;
+  width: auto;
+  
+  
+}
 .navbar-bright li > a:hover {
   background-color:#000044;
 }
@@ -124,6 +134,7 @@ a,a:hover {
 .thumbnail {
   margin-bottom:8px;
 }
+
 
 .img-container {
   overflow:hidden;
